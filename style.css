@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #094162e5;
+    text-align: center;
+    font-size: 14px;
+}
+
+h1 {
+    color: #000;
+}
+
+.home_hero {
+    background-image: url(piggy-bank-background2.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: #fff;
+}
+
+.pie_chart_content {
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    color: #fff;
+}
+
+.overlay {
+    background-color: #0941627c;
+    height: 100vh;
+    padding-top: 100px;
+    padding-bottom: 200px;
+}
+
+h2.page-title {
+    margin-bottom: 2em;
+}
+
+.pie_chart_content .container {
+    background-color: #fff;
+    border-radius: 40px;
+    padding: 0px;
+}
+
+.main_box h2 {
+    padding: 50px 0px 25px 0px;
+    color: #000;
+    font-size: 25px;
+}
+
+.main_box {
+    background-color: #fff;
+    height: 100%;
+    border-bottom-left-radius: 30px;
+    border-top-left-radius: 30px;
+}
+
+#chartContainer {
+    height: 370px;
+    width: 460px;
+    margin: auto;
+    border: 5px;
+}
+
+.count_box {
+    background-color: #182d6e;
+    border-bottom-right-radius: 30px;
+    border-top-right-radius: 30px;
+    height: 100%;
+    padding: 100px;
+}
+
+.total-input {
+    background-color: #4054d1;
+    border: none;
+    color: #fff;
+    width: 90%;
+    margin: auto;
+}
+
+.form-group.c1,
+.form-group.c2 {
+    display: inline-block;
+    width: 45%;
+}
+
+#cat-input {
+    display: block;
+    width: 90%;
+    margin: auto;
+}
+
+.form-control:disabled,
+.form-control[readonly] {
+    background-color: #3546b0;
+    opacity: 1;
+}
+
+.form-control:focus {
+    background-color: transparent;
+    color: #fff;
+    border: none;
+}
+
+table {
+    margin-top: 2em;
+}
+
+tr {
+    height: 50px;
+}
+
+th,
+tfoot {
+    font-size: 20px;
+}
+
+td:hover span {
+    width: 60px;
+    opacity: 1.0;
+    cursor: pointer;
+    display: inline-block;
+    transition: 0.2s linear;
+}
+
+span {
+    color: white;
+    width: 0;
+    display: none;
+    transition: 0.2s linear;
+    opacity: 0;
+}
+
+.edit {
+    background-color: #41ca47;
+    margin-right: 5px;
+    padding: 5px;
+}
+
+.delete {
+    background-color: #e74c3c;
+    padding: 5px;
+}
+
+.capitalize {
+    text-transform: capitalize;
+}
