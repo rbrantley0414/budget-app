@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Piggy</title>
+    <link rel="icon" type="image/x-icon" href="piggy-bank.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.14.0/css/all.css"
+        integrity="sha384-HzLeBuhoNPvSl5KYnjx0BT+WB0QEEqLprO+NBkkk5gbc67FTaL7XIGa2w1L0Xbgc" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <script type="text/javascript" src="js/lib/jquery-2.1.4.min.js"></script>
+</head>
+
+<body onload="calculate();">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- <a class="navbar-brand" href="#"><img src="piggy-bank.png" alt=""></a> -->
+        <a class="navbar-brand" href="#">Piggy</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="budget.html">Your Budget</a>
+                </li>
+            </ul>
+            <!-- Navbar Right Side -->
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="#">Login</a>
+                <a class="nav-item nav-link" href="#">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pie_chart_content">
+        <div class="overlay">
+            <h2 class="page-title">Your Budget</h2>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="main_box">
+                            <h2>Monthly Spending Breakdown</h2>
+                            <!-- on change update -->
+                            <div id="chartContainer"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="count_box">
+                            <form action="/sucess" method="post" class="my-form">
+                                <div class="form-group">
+                                    <label for="total-input">Total Monthly Income</label>
+
+                                    <input type="number" id="total-input" class="total-input form-control">
+                                </div>
+
+                                <fieldset>
+                                    <legend>Add Items to Budget</legend>
+
+                                    <div class="form-group c1">
+                                        <label for="entry-input">Entry</label>
+                                        <input type="text" name="entry-input" class="item-input form-control" required>
+                                    </div>
+                                    <div class="form-group c2">
+                                        <label for="value-input">Amount</label>
+                                        <input type="number" name="value-input" class="value-input form-control"
+                                            required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="cat-input">Category</label>
+                                        <select name="cat-input" id="cat-input" class="selectpicker">
+                                            <option value="Bills & Utilities">Bills & Utilities</option>
+                                            <option value="Entertainment">Entertainment</option>
+                                            <option value="Food & Drink">Food & Drink</option>
+                                            <option value="Gas">Gas</option>
+                                            <option value="Groceries">Groceries</option>
+                                            <option value="Health">Health</option>
+                                            <option value="Shopping">Shopping</option>
+                                            <option value="Travel">Travel</option>
+                                            <option value="Misc.">Misc.</option>
+                                        </select>
+                                    </div>
+                                    <submit class="btn btn-primary submit" id="submit" type="submit" ;>Add
+                                    </submit>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="col-md-10">
+                    <!-- table breakdown of spending -->
+                    <table id="myTable" class="table table-dark">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">Entry</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Category</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbody">
+                            <tr class="tbody_data">
+                                <td><span><i class="fas fa-pencil-alt edit"></i><i
+                                            class="fas fa-trash-alt delete"></i></span>Amazon</td>
+                                <td class="amount_sum">$20.50</td>
+                                <td class="cat-output">Shopping</td>
+                            </tr>
+                            <tr class="tbody_data">
+                                <td><span><i class="fas fa-pencil-alt edit"></i><i
+                                            class="fas fa-trash-alt delete"></i></span>Planet Fitness</td>
+                                <td class="amount_sum">$10.00</td>
+                                <td class="cat-output">Health</td>
+                            </tr>
+                            <tr class="tbody_data">
+                                <td><span><i class="fas fa-pencil-alt edit"></i><i
+                                            class="fas fa-trash-alt delete"></i></span>Walmart</td>
+                                <td class="amount_sum">$14.97</td>
+                                <td class="cat-output">Groceries</td>
+                            </tr>
+                            <tr class="tbody_data">
+                                <td><span><i class="fas fa-pencil-alt edit"></i><i
+                                            class="fas fa-trash-alt delete"></i></span>Walmart</td>
+                                <td class="amount_sum">$18.68</td>
+                                <td class="cat-output">Groceries</td>
+                            </tr>
+                            <tr class="tbody_data">
+                                <td><span><i class="fas fa-pencil-alt edit"></i><i
+                                            class="fas fa-trash-alt delete"></i></span>Costco</td>
+                                <td class="amount_sum">$28.00</td>
+                                <td class="cat-output">Gas</td>
+                            </tr>
+                            <tr class="tbody_data">
+                                <td><span><i class="fas fa-pencil-alt edit"></i><i
+                                            class="fas fa-trash-alt delete"></i></span>Panera</td>
+                                <td class="amount_sum">$17.76</td>
+                                <td class="cat-output">Food & Drink</td>
+                            </tr>
+                        <tfoot>
+                            <th>Total Spending</th>
+                            <td class="total_amount">$109.91</td>
+                            <td></td>
+                        </tfoot>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"
+        integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
